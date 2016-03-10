@@ -1,0 +1,58 @@
+<! DOCTYPE html > 
+<html>
+<head>
+  <title>Welcome!</title>
+</head>
+<body>
+
+  <form action="success.html"  method="post">
+  <fieldset>
+    <div>
+      <label>Email:</label>
+      <input type="email" name="email">
+    </div>
+    
+    <div>
+      <label>Password:</label>
+      <input type="password" name="password">
+    </div>
+    
+    <div>
+      <label>Type of candy:</label>
+      <select name="candy">
+        <option value="Chocolate">Chocolate</option>
+        <option value="Sour candy">Sour candy</option>
+        <option value="Skittles">Skittles</option>
+      </select>
+    </div>
+    
+    <div>
+      <label>Message us here:</label><br>
+      <textarea name="message" rows="10" cols="40">Write something here</textarea>
+    </div>
+    
+    <div>
+      <label>Pick a workout (radio):</label><br>
+          <input type="radio" name="workout" value="chest" checked> Chest<br>
+          <input type="radio" name="workout" value="back"> Back<br>
+          <input type="radio" name="workout" value="cardio"> Cardio
+    </div>
+    
+    <div>
+    <label>Pick one (checkbox) </label><br>
+        <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+        <input type="checkbox" name="vehicle2" value="Car"> I have a car 
+    </div>
+    
+    <div>
+    <label>Pick one (Number) </label><br>
+        Quantity (between 1 and 10):
+        <input type="number" name="quantity" min="1" max="10">
+    </div>
+    </fieldset>
+    <button type="submit">Log in</button>
+    
+  </form>
+
+</body>
+</html>
