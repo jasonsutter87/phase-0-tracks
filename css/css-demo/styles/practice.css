@@ -1,0 +1,66 @@
+#contact-info {
+font-size: .8em;
+
+}
+#contact-info a:hover {
+  color: green;
+}
+#contact-info a:visited {
+  color: pink;
+} 
+
+section > p { 
+	background-color: orange;
+
+}
+
+
+
+
+.job {
+	background-color: #e9e5dc;
+	border-radius: 25px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+
+
+}
+
+.unordered-list {
+
+	font-size: .8em;
+}
+
+
+
+/*  What does the "Cascading" part of Cascading Style Sheets mean? When there is a conflict between two CSS rules that select the same element, how does your browser decide which rule to use?
+
+-It Cascaded the style the hierarchy down the chain.
+-The top part of the style overides the lower styles.
+
+
+
+Find a cheat sheet or quick guide on CSS selectors, or refer to a cheat sheet you've already bookmarked. What is a pseudoselector? Write a CSS rule that uses a pseudoselector.
+
+-http://www.w3schools.com/cssref/css_selectors.asp
+
+- pseudoselector: 
+a.highlight:hover {
+  color: #ff0000;
+} 
+
+We can use to hover over text for links. to show active links, to show past visited links. 
+
+
+
+How can you use CSS to select the child element of another element (for instance, a section inside another section, or an li inside a ul but not inside an ol)? Add an example of such a rule in your CSS. 
+
+
+section > p { 
+  background-color: orange;
+
+}
+
+*/
