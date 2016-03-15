@@ -1,0 +1,68 @@
+
+body {
+  background: #a3a3a3;
+
+}
+
+nav {
+  
+  background: black;
+  color: white;
+  font-family: "Helvetica", sans-serif;
+  font-size: 16pt;
+  padding: 15px;
+
+}
+article {
+  margin: auto;
+  text-align: center;
+  
+}
+
+h1 {
+	
+	font-family: "Helvetica", sans-serif;
+	font-size: 40pt;
+	//text-align: center; }
+h3 {
+	
+	font-family: "Times New Roman", sans-serif; 
+	font-size: 28pt;
+	//text-align: center;
+}
+img {
+	position: absolute;
+  //float: left;
+	//margin: auto;
+  width: 100%;
+  padding-top: 10px;
+  padding-right: 0px;
+    
+   
+
+
+}
+.hat{
+  
+  width: 200px;
+  height 100%;
+  margin: auto;
+  padding-left: 20px;
+
+}
+.octopus{
+  
+  width: 200px;
+  height 100%;
+  padding-top: 100px;
+  z-index: -1;
+  margin: auto;
+}
+.glasses{
+  
+  padding-top: 180px;
+  width: 200px;
+  height 100%;
+  margin: auto;
+
+}
