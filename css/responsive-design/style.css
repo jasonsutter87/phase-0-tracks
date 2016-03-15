@@ -1,3 +1,20 @@
+body {
+  max-width: 960px;
+  text-align: center;
+}
+
+#external-links {
+  width: 20%;
+  display: inline-block;
+  vertical-align: top;
+
+}
+
+main {
+  width: 756px;
+  display: inline-block;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -12,13 +29,19 @@ cite {
 #external-links ul {
   list-style-type: none;
   padding-left: 0px;
+
 }
 
+
+
 /* you're welcome to edit the
-image, figure, and figcaption CSS if you'd like, 
+image, figure, and figcaption CSS if you'd like,
 but it's optional! */
+
 img {
   width: 100%;
+  height: auto;
+  padding: 20px;
 }
 
 figure {
@@ -29,4 +52,23 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    text-align: center;
+   }
+   
+   section {
+     height: auto;
+   }
+   
+   #external-links a:hover{
+     color: green;
+   }
+   img{
+
+    width: 50%;
+    height: auto;
+   }
 }
