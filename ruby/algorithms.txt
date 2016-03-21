@@ -1,0 +1,11 @@
+#Welcome to the Elevator (user prompt)
+> What Floor are you on now? (user prompt)
+-----> "28"
+> What Floor would you like to go to?(user prompt)
+------> "1st"
+
+#Push Down Button (push the button that completes this statment if A !> B push down  )
+# Enter Elevator (translate position)
+#Push the 1st floor button.  (push the floor that was desired)
+-----> (If people come in adjust your position to make room.) (translate position)
+#When the door open on the first floor walk out.. (translate position)
