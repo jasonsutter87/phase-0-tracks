@@ -1,0 +1,27 @@
+
+section {
+  background-color: green;
+  display: inline-block;
+  width: 45%;
+  margin: auto;
+
+  font-family: "Times New Roman" Serif;
+  font-size: 16pt;
+
+}
+
+h1, footer {
+  text-align: center;
+}
+
+.column-2 {
+  padding-top: 25px;
+}
+
+section a:hover {
+  color: yellow;
+}
+
+section a:visited {
+  color: pink;
+}
