@@ -15,11 +15,12 @@
 #provide a user interface that lets a user enter a name and get a fake name back.
 #Let the user do this repeatedly until they decide to quit by typing 'quit'. (They might just hit Enter to continue.)
 
-#Set up spy name
-
-spy_list = []
-$spy_name_list = []
+#Set up spy name List
+spy_name_list = []
+#Set up Alias List
+$alias_list = []
 def new_spy_name(name)
+    #Set up spy name
     spy_name = ""
     #Split the name up into characters
     split_name = name.split('')
@@ -62,7 +63,7 @@ def new_spy_name(name)
         #advance the count
         count += 1
     end
-     $spy_name_list << name =  spy_name
+     $alias_list << name =  spy_name
 end
 
 #Ask the user to type thir name
@@ -89,7 +90,7 @@ until name == 'quit'
     if name == 'quit'
         break
     end
-    spy_list << orginal_name
+    spy_name_list << orginal_name
     #run new_spy_name methond
     new_spy_name(name)
     #Reask the question
@@ -102,8 +103,8 @@ p "Thank you for using the Spy name generator..."
 #Run Spy name list
 
 count = 0
-while count < spy_list.count
-    p "Your name is #{spy_list[count]} with an alias name of #{$spy_name_list[count]}"
+while count < spy_name_list.count
+    p "Your name is #{spy_name_list[count]} with an alias name of #{$alias_list[count]}"
     count += 1
 end
 
