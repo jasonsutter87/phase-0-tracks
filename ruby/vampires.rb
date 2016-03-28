@@ -1,7 +1,7 @@
 def is_vampire?(name, age, garlic, health_insurance, allergies)
     #If the employee got their age right, and is willing to eat garlic bread or sign up for insurance,
     #the result is “Probably not a vampire.”
-    if (name != "Drake Cula"  &&  name != "Tu Fang") && (age <= 100) && (garlic == "yes" || health_insurance == "yes")
+    if (name != "Drake Cula"  &&  name != "Tu Fang") && (age <= 100) && (garlic == "yes" || health_insurance == "yes") && (allergies != "sunshine")
     	p "Probably not a vampire."
     #If the employee got their age wrong, and hates garlic bread or waives insurance,
     #the result is “Probably a vampire.”
