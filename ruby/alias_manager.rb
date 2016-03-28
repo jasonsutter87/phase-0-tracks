@@ -16,9 +16,11 @@
 #Let the user do this repeatedly until they decide to quit by typing 'quit'. (They might just hit Enter to continue.)
 
 #Set up spy name
-$spy_name = ""
+
+spy_list = []
+$spy_name_list = []
 def new_spy_name(name)
-    
+    spy_name = ""
     #Split the name up into characters
     split_name = name.split('')
     #vowel list
@@ -32,35 +34,35 @@ def new_spy_name(name)
         if vowel.index(split_name[count])
             #if the vowels are at the end of their list, then return to the start
             if split_name[count] == "u"
-                $spy_name = $spy_name + "a"
+                spy_name = spy_name + "a"
             #if normal vowel, advance one place
             else 
-                 $spy_name = $spy_name + vowel[vowel.index(split_name[count]) + 1]
+                 spy_name = spy_name + vowel[vowel.index(split_name[count]) + 1]
             end
         #if there is a space in the name, add a space
         elsif split_name[count] == " "
-            $spy_name = $spy_name + " "
+            spy_name = spy_name + " "
         #advance the consonate value one place
         else 
             consonants = split_name[count].next 
             #Check if the next value consonant lands on a vowel, if so advance one more time
             if vowel.index(consonants.downcase)
-                $spy_name = $spy_name + consonants.next
+                spy_name = spy_name + consonants.next
             #Check if the consonant is an 'z', if so change to a 'b'
             elsif split_name[count] == "z"
-                $spy_name = $spy_name + "b"
+                spy_name = spy_name + "b"
             #Check if the consonant is an 'Z', if so change to a 'B'
             elsif split_name[count] == "Z"
-                $spy_name = $spy_name + "B"
+                spy_name = spy_name + "B"
             #if nothing is wrong witht the consonants add it to spy name
             else
-                 $spy_name = $spy_name +  consonants
+                 spy_name = spy_name +  consonants
             end
         end
         #advance the count
         count += 1
     end
-     $spy_name =  $spy_name + " "
+     $spy_name_list << name =  spy_name
 end
 
 #Ask the user to type thir name
@@ -71,7 +73,8 @@ name = ''
 #set keyword so the programs knows when to stop running
 until name == 'quit'
     #UI field to enter name
-    name = gets.chomp
+    orginal_name = gets.chomp
+    name = orginal_name
     #split names into first and last
     swap_names = name.split(' ')
     #first name
@@ -86,6 +89,7 @@ until name == 'quit'
     if name == 'quit'
         break
     end
+    spy_list << orginal_name
     #run new_spy_name methond
     new_spy_name(name)
     #Reask the question
@@ -96,4 +100,10 @@ end
 #Ending message
 p "Thank you for using the Spy name generator..."
 #Run Spy name list
-p "Your Spy name is #{$spy_name}"
+
+count = 0
+while count < spy_list.count
+    p "Your name is #{spy_list[count]} with an alias name of #{$spy_name_list[count]}"
+    count += 1
+end
+
