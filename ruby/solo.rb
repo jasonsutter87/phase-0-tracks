@@ -77,33 +77,44 @@ class Pizza
 end
 
 
-
-
+#Blank pizza list
 pizza_list = []
 
+
+#first question
 p "Welcome to the Pizza Joint! How many pizza would you like"
 pizza_count = gets.chomp.to_i
 
+
+#set up loop 
 count = 1
 while count <= pizza_count 
+  #Ask what kind of pizza
   p "What kind of pizza would you want (cheese, pepperoni, bbq, chicken garlic, cajun chicken, other)"
   pizza_type = gets.chomp.downcase
   
   pizza = Pizza.new (pizza_type)
 
+  #if Cheese?
   if pizza_type == "cheese"
+    #state toppings and ask to remove anything
     p "By default that pizza comes with #{pizza.toppings}. Would you want to remove ingredients (yes or no)"
     change_ingredients = gets.chomp.downcase
+    #if yes... then loop until no.
     if change_ingredients == "yes"
       until change_ingredients == "no"
+          #Ask what item you want to be removed
           p "Okay, What would you like to remove"
           remove = gets.chomp.downcase
 
+          #check if item is even in the toppings
           if pizza.toppings.include?(remove) == true
             pizza.remove_topping(remove)
+            #Check again if they what to change toppings. 
             p "Okay the pizza now only has #{pizza.toppings} as toppings. Would you want to modify it more (yes or no)"
             change_ingredients = gets.chomp.downcase
            else
+              #Error out and reask the question
               p "Error. #{remove} is not part of the toppings."
               p "Would you want to modify it more (yes or no)"
               change_ingredients = gets.chomp.downcase
@@ -219,46 +230,62 @@ while count <= pizza_count
     end
   end
   
+  #Ask what size of pizza
   p "What size pizza do you want? (small, medium, large, extra-large)"
+  #change input to downcase
   size = gets.chomp.downcase
   pizza.set_pizza_size(size)
   
   
+  #Set the pizza number
   pizza_number = "Pizza number #{count}"
   
 
+  #Add pizza to list of pizza
   pizza_list << {"name" => pizza.name, "size" => pizza.size, "toppings" => pizza.toppings, "sauce" => pizza.sauce, "price" => pizza.price}
 
+  #Confirm the pizza
   p "Lets confirm that pizza"
   pizza.update
   
-
+  #advance the count
   count += 1
 end
 
+#Set up empty array for sub-total
 sub_total = []
 
+#Confirm your whole pizza order
 p "Lets confirm your pizza order"
 p "You ordered #{pizza_list.count} pizzas"
+#loop through the list of pizza
 pizza_list.length.times do |x|
   p "Pizza number #{x + 1}"
+   #Add the prices to the sub-total array
    sub_total << pizza_list[x]["price"]
+  #print pizza order out
   p pizza_list[x]
   
 end
 
 
+#Total method
 def total (arr)
+    #Set sum to 0
     sum = 0.0
+    #for how long the sub-total is, loop...and add prices
     arr.length.times do |x|
          sum = sum + arr[x]
     end
+    #Show final price
     p sum
 end
 
+#show sub-total
 p "Your Sub-Total is:"
 p sub_total
 
+#run total method
 p "Your Total is:"
 total (sub_total)
 
