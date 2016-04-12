@@ -1,4 +1,3 @@
- require_relative = 'state_data'
 
 # Virus Predictor
 
@@ -7,7 +6,7 @@
 
 # EXPLANATION OF require_relative
 #
-# require_relative = 'state_data'
+ require_relative = 'state_data'
 
 # require_relative: is from the same directory as the current file you are working on.
 #require: pulls information that not location in the same directory and you need to write the full file path. 
