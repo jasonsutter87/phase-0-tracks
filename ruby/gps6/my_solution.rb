@@ -16,8 +16,6 @@
     #require_relative('path')
     #equals: require(File.expand_path('path', File.dirname(__FILE__)))
 
-
-
 class VirusPredictor
   
   # initialize set up the program with instance variable thhat can be access through out the class.
@@ -63,8 +61,8 @@ class VirusPredictor
     def speed_of_spread
         speed = case @population_density
           when 0...50 then 2.5
-          when 50...100 then  2.0
-          when 100...150 then  1.5
+          when 50...100 then 2.0
+          when 100...150 then lllllllllllll1.5
           when 150...200 then 1.0
           else speed = 0.5
         end
@@ -83,16 +81,30 @@ STATE_DATA.each do |state,info|
    state.virus_effects
 end
 
-
-
-
 #=======================================================================
 # Reflection Section
 
 # On your own, add a commented reflection section to yourmy_solution.rb file. Answer the following questions in your reflection:
 
 # What are the differences between the two different hash syntaxes shown in the state_data file?
+# > The outer hash STATE_DATA had a {"string" => {}, next..} format while the inner hash had a
+#  {symbol: value, next..} format. 
+#
 # What does require_relative do? How is it different from require?
+# >  require_relative pulls the class from a file in a the same folder, while require pulls from class that
+#    isnt in the same folder. 
+#   
 # What are some ways to iterate through a hash?
+# > do loop, while loop, make a new instance and pull values, and search by keys or by values. 
+
 # When refactoring virus_effects, what stood out to you about the variables, if anything?
+# > nothing stood out. it wasnt until our guide helped us that declaring the variables were not needed.
+
 # What concept did you most solidify in this challenge?
+# > That i dont need to delcare my variables in creating methods if it is already an intance varible. 
+
+
+
+
+
+
