@@ -1,7 +1,5 @@
-
 //  In your new file, declare two separate arrays:
 // an array of four colors ("blue", for instance, though you're welcome to get crazy with something like "iridescent blue/green with silver sparkles")
-
 
 var color = ["green", "blue", "light-red", "blackish grey...not black, but not grey"];
 
@@ -19,8 +17,6 @@ names.push("Alexander");
 //print color name
 console.log(names);
 
-
-
 //combining names with colors into a new object
 var horse = {};
 //console.log(horse);
@@ -33,10 +29,6 @@ for (var i = 0; i < names.length; i++){
 }
 //print horse
 console.log(horse);
-
-
-
-
 
 // constructor function
 function Car(make, color, topSpeed) {
@@ -64,5 +56,3 @@ newCar.needsGas("yes");
 var newCar1 = new Car("Toyota", "Grey", 88);
 console.log(newCar1);
 newCar1.needsGas("no");
-
-
