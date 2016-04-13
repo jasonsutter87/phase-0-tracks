@@ -22,10 +22,13 @@ var horse = {};
 //console.log(horse);
 
 //for loop
+if (names.length == color.length){
 for (var i = 0; i < names.length; i++){
   
   horse[names[i]] = color[i];
   
+}}else{
+	console.log("Error these arrys are not equal in length")
 }
 //print horse
 console.log(horse);
