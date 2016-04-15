@@ -8,6 +8,8 @@
 // Add driver code that tests your function on a few arrays.
 
 
+//Release 0
+console.log("****  RELEASE 0  ****");
 //longest word function
 function longestWord (array){
 	//save incomeing array to array variable
@@ -45,6 +47,9 @@ longestWord(["long phrase","longest phrase","longer phrase", "Jason wants to win
 
 // Add some driver code that tests both outcomes of your function.
 
+
+//Release 1
+console.log("****  RELEASE 1  ****");
 //check key value function
 function keyValueCheck(obj1, obj2){
 	//set incoming items as incomingHash1 and incomingHash12
@@ -64,3 +69,55 @@ function keyValueCheck(obj1, obj2){
 
 //check key value driver code
 keyValueCheck( {name: "Steven", age: 54}, {name: "Tamir", age: 54} );
+
+
+// Write a function that takes an integer for length, and builds and returns an array of strings of the given length.
+// So if we ran your function with an argument of 3, we would get an array of 3 random words back (the words don't 
+// have to be actual sensical English words -- "nnnnfph" totally counts). The words should be of randomly varying length,
+// with a minimum of 1 letter and a maximum of 10 letters. (This involves a new trick, generating a random number, that
+// you'll have to look up, but the solution on how to do so is relatively straightforward.)
+
+
+// Add driver code that does the following 10 times: generates an array, prints the array, feeds the array to your "longest word"
+// function, and prints the result.
+
+
+//Release 2
+console.log("****  RELEASE 2  ****");
+//random word function
+function randomWords(int){
+	//set incoming integer 
+	var incomingInt = int;
+	//create empty array for random words
+	var randomlist = []
+
+	//pre print statement
+	console.log("Printing random word list!");
+	//for loop. loop number of integers
+	for(var x = 0; x < incomingInt; x++){
+		//set random number 1-10
+		var randomLetterCount = Math.floor(Math.random() * (11-1) + 1);	
+		//create empty array for random letter list
+		var randomWord = []
+		//for loop
+		for(var i = 0; i < randomLetterCount; i++){
+			//set random lower case letter a..z
+			var randomLetter = Math.floor(Math.random() * (123-97) + 97);
+			//push random letter to random word list
+			randomWord.push(String.fromCharCode(randomLetter));
+		}
+		//push random word to random words list
+		randomlist.push(randomWord.join(""));
+	}
+	//printing random list
+	console.log(randomlist);
+	//return random list so we can access it outside the function.
+	return randomlist;
+}
+
+//create a new 10 random words with the randomWords function.
+var randomLong = randomWords(10);
+
+//run random word list through longest word function.
+console.log("The longest word in the list is:");
+longestWord(randomLong);
