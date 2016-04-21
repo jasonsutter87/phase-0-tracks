@@ -36,16 +36,49 @@
 	we call this one... lunch
 
 /* Update an item that meets some condition (you can choose a condition that makes sense). */
-
 	/* query */
 
+	UPDATE food
+	SET cost=2
+	WHERE name="tacos";
+
 	/* output */
+
+	None
 
 /* Display the information in both tables using one query. */
 
 	/* query */
 
+	SELECT name, cost, aisle
+	FROM food
+	INNER JOIN aisles
+	ON food.aisle=aisles.id;
+	
 	/* output */
+
+	ceral|3|1
+	muffins|2|1
+	breakfast magic bars|2|1
+	breakfast bars with honey|2|1
+	we call this one... breakfast|2|1
+	we call this one... lunch|4|2
+	meat on meet on meat|757|2
+	ham sammmmm|71|2
+	Turkey....that with a 'T'..|71|2
+	lunch. nothing special|1|2
+	tacos|2|3
+	pizza|15|3
+	mmm tacos...this is what you want!!!!|20|3
+	flat pizza|3|4
+	potstickers|15|4
+	pie|12|4
+	apple|1|5
+	lime|1|5
+	lemon|1|5
+	tomato|1|5
+	corn|1|5
+	potatos|1|5
 
 /* Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query. */
 
