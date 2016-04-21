@@ -1,0 +1,61 @@
+/* Display the information in one table (either table is fine). */
+
+	/* query */
+	SELECT name FROM food
+	UNION
+	SELECT aisle_name FROM aisles;
+
+	/* output */
+
+	Breakfast food
+	Dinner Food
+	Fresh Foods
+	Frozen Foods
+	Lunch Food
+	Turkey....that with a 'T'..
+	apple
+	breakfast bars with honey
+	breakfast magic bars
+	ceral
+	corn
+	flat pizza
+	ham sammmmm
+	lemon
+	lime
+	lunch. nothing special
+	meat on meet on meat
+	mmm tacos...this is what you want!!!!
+	muffins
+	pie
+	pizza
+	potatos
+	potstickers
+	tacos
+	tomato
+	we call this one... breakfast
+	we call this one... lunch
+
+/* Update an item that meets some condition (you can choose a condition that makes sense). */
+
+	/* query */
+
+	/* output */
+
+/* Display the information in both tables using one query. */
+
+	/* query */
+
+	/* output */
+
+/* Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query. */
+
+	/* query */
+
+	/* output */
+
+
+/* Delete an item that meets some condition (you can choose a condition that makes sense). */
+
+	/* query */
+
+	/* output */
