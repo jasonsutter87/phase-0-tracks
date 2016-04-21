@@ -116,4 +116,141 @@
 
 	/* query */
 
+	DELETE FROM food
+	WHERE name="lime";
+
 	/* output */
+
+	none
+
+
+
+/* There are lots of different kinds of joins. What are they? Can you apply different conditions to a join to change what's displayed? Can you bookmark any good diagrams that will help you tell different joins apart in the future? */
+- http://www.w3schools.com/sql/
+- Inner Join:
+	SELECT name, cost, aisle
+	FROM food
+	INNER JOIN aisles
+	ON food.aisle=aisles.id;
+
+- Left Join:
+	SELECT name, cost, aisle
+	FROM food
+	LEFT JOIN aisles
+	ON food.aisle=aisles.id;
+
+- Right Join:
+	SELECT aisle_name, messy, needsStocking
+	FROM aisles
+	RIGHT JOIN food
+	ON aisles.id=food.aisle;
+
+
+	Error: RIGHT and FULL OUTER JOINs are not currently supported
+- Full Join:
+	SELECT name, cost, aisle
+	FROM food
+	FULL OUTER JOIN aisles
+	ON food.aisle=aisles.id;
+
+
+	Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+
+
+Try a few different joins in your database, and record the commands and the output in
+
+
+- Inner Join:
+	
+	/* query */
+
+		SELECT name, cost, aisle
+		FROM food
+		INNER JOIN aisles
+		ON food.aisle=aisles.id;
+
+	/* output */
+
+		ceral|3|1
+		muffins|2|1
+		breakfast magic bars|2|1
+		breakfast bars with honey|2|1
+		we call this one... breakfast|2|1
+		we call this one... lunch|4|2
+		meat on meet on meat|757|2
+		ham sammmmm|71|2
+		Turkey....that with a 'T'..|71|2
+		lunch. nothing special|1|2
+		tacos|2|3
+		pizza|15|3
+		mmm tacos...this is what you want!!!!|20|3
+		flat pizza|3|4
+		potstickers|15|4
+		pie|12|4
+		apple|1|5
+		lemon|1|5
+		tomato|1|5
+		corn|1|5
+		potatos|1|5
+
+- Left Join:
+	
+	/* query */
+
+		SELECT name, cost, aisle
+		FROM food
+		LEFT JOIN aisles
+		ON food.aisle=aisles.id;
+
+	/* output */
+
+		ceral|3|1
+		muffins|2|1
+		breakfast magic bars|2|1
+		breakfast bars with honey|2|1
+		we call this one... breakfast|2|1
+		we call this one... lunch|4|2
+		meat on meet on meat|757|2
+		ham sammmmm|71|2
+		Turkey....that with a 'T'..|71|2
+		lunch. nothing special|1|2
+		tacos|2|3
+		pizza|15|3
+		mmm tacos...this is what you want!!!!|20|3
+		flat pizza|3|4
+		potstickers|15|4
+		pie|12|4
+		apple|1|5
+		lemon|1|5
+		tomato|1|5
+		corn|1|5
+		potatos|1|5
+
+- Right Join:
+	
+	/* query */
+
+		SELECT aisle_name, messy, needsStocking
+		FROM aisles
+		RIGHT JOIN food
+		ON aisles.id=food.aisle;
+
+	/* output */
+
+		Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+- Full Join:
+	
+	/* query */
+
+		SELECT name, cost, aisle
+		FROM food
+		FULL OUTER JOIN aisles
+		ON food.aisle=aisles.id;
+
+	/* output */
+
+
+	Error: RIGHT and FULL OUTER JOINs are not currently supported
+
