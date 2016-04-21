@@ -84,7 +84,32 @@
 
 	/* query */
 
+	SELECT food.name, aisles.aisle_name FROM food JOIN aisles ON food.aisle = aisles.id;
+
 	/* output */
+
+	ceral|Breakfast food
+	muffins|Breakfast food
+	breakfast magic bars|Breakfast food
+	breakfast bars with honey|Breakfast food
+	we call this one... breakfast|Breakfast food
+	we call this one... lunch|Lunch Food
+	meat on meet on meat|Lunch Food
+	ham sammmmm|Lunch Food
+	Turkey....that with a 'T'..|Lunch Food
+	lunch. nothing special|Lunch Food
+	tacos|Dinner Food
+	pizza|Dinner Food
+	mmm tacos...this is what you want!!!!|Dinner Food
+	flat pizza|Frozen Foods
+	potstickers|Frozen Foods
+	pie|Frozen Foods
+	apple|Fresh Foods
+	lime|Fresh Foods
+	lemon|Fresh Foods
+	tomato|Fresh Foods
+	corn|Fresh Foods
+	potatos|Fresh Foods
 
 
 /* Delete an item that meets some condition (you can choose a condition that makes sense). */
