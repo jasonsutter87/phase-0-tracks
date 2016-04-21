@@ -1,0 +1,49 @@
+/* You've joined two tables before. How do you join three?*/
+  
+  SELECT
+    table1.attribute1
+    table2.attribute1
+    table3.attribute1
+  FROM table3
+  INNER JOIN table2
+    on table1.column_name=table2.column_name
+  INNER JOIN table1
+    on table1.column_name=table2.column_name;
+
+/* There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.*/
+
+  /* queries */
+  SELECT businesses.name,
+         users.first_name,
+         users.last_name,
+         reviews.stars,
+         reviews.comment
+  FROM reviews 
+  INNER JOIN users
+      on users.id = reviews.user_id
+  INNER JOIN businesses
+      on businesses.id = reviews.business_id;
+    
+  /* Output */  
+  Grundy Hollow Wedding Chapel|Mandy|Kaling|5|Great service!
+  Amirs Towing|Steven|Wonder|1|Didnt give me my cake with that i ordered, and the waiter called me fat 
+
+/* How do you view the data of all three tables for just one particular business? */
+
+  /* queries */
+  
+  SELECT businesses.name,
+         users.first_name,
+         users.last_name,
+         reviews.stars,
+         reviews.comment
+  FROM reviews 
+  INNER JOIN users
+      on users.id = reviews.user_id
+  INNER JOIN businesses
+      on businesses.id = reviews.business_id
+  WHERE businesses.id = 1;
+  
+  /* Output */
+  
+  Grundy Hollow Wedding Chapel|Mandy|Kaling|5|Great service!
