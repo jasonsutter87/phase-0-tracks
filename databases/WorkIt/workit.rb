@@ -13,7 +13,6 @@ fitness_type_cmd = <<-SQLite3
 	)
 SQLite3
 
-
 # Create Athlete Table
 athlete_cmd = <<-SQLite3
 	CREATE TABLE IF NOT EXISTS athlete (
@@ -39,11 +38,66 @@ SQLite3
 
 
 db.execute(fitness_type_cmd)
-db.execute(athlete_cmd)
-
 db.execute(workout_machine_cmd)
 
+db.execute(athlete_cmd)
+
+
+
+
+# Populate fitness_type with database
+if db.execute("SELECT * FROM fitness_type") == []
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Cardio');")
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Back');")
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Chest');")
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Bicep');")
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Tricep');")
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Legs');")
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Abs');")
+end
+
+# Populate workout_machine with data
+if db.execute("SELECT * FROM workout_machine") == []
+	#cardio
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Elliptical', 1);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Treadmill', 1);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Adaptive Motion Trainer', 1);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Bike', 1);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Stair Master', 1);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Row Machine', 1);")
+	#back
+	#chest
+	#bicept
+	#tricep
+	#legs
+	#ab
+
+
+
+
+end
+
+
+# get user information (first name, last name age, body weight, gender)
+# Populate Athlete with data
+# Create Workout_log Table
+# Create PR Table
+# start workout button ->
+
+	# Create Workout_session Table
+
+	#if PR save information and put into PR table if no entieries or hight value
+
+
+
+
+
+
+
 #until we have a user......don't run
+
+
+
 
 
 # # Create Workout_session Table
