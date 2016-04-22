@@ -54,6 +54,8 @@ if db.execute("SELECT * FROM fitness_type") == []
 	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Tricep');")
 	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Legs');")
 	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Abs');")
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Lats');")
+	db.execute("INSERT INTO fitness_type(catagory) VALUES ('Shoulders');")
 end
 
 # Populate workout_machine with data
@@ -65,16 +67,49 @@ if db.execute("SELECT * FROM workout_machine") == []
 	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Bike', 1);")
 	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Stair Master', 1);")
 	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Row Machine', 1);")
+	
 	#back
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Deltoid Fly', 2);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Vertical Row', 2);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('High Row', 2);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Low Row', 2);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Chin Dip Assist', 5);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Lower Back', 5);")
+
 	#chest
-	#bicept
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Chest Press', 3);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Incline Press', 3);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Deltoid Fly', 3);")
+
+	#bicep
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Biceps Curls', 4);")
+
 	#tricep
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Tricepts Extension', 5);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Dip Machine', 5);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Chin Dip Assist', 5);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Tricep pull downs', 5);")
+
 	#legs
-	#ab
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Seated Leg Press', 6);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Standing Calf', 6);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Leg Extension', 6);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Seated Leg Curl', 6);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Kneeling Leg Curl', 6);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Adductor Leg Curl', 6);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Abductor Leg Curl', 6);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Glute Press', 6);")
 
+	#abs
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Abdominal', 7);")
 
+	# Lats
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Fixed Lat Pull Down', 8);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Lat Pull Down', 8);")
 
-
+	# Shoulder
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Shoulder Press', 9);")
+	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Deltoid Raise', 9);")
 end
 
 
