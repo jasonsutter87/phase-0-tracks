@@ -3,9 +3,9 @@ require 'SQLite3'
 
 
 # Create SQLite3 database
- db = SQLite3::Database.new("workit.db")
+db = SQLite3::Database.new("workit.db")
 
-# Create Fitness Table
+# initialize Fitness Table
 fitness_type_cmd = <<-SQLite3
 	CREATE TABLE IF NOT EXISTS fitness_type (
 		focus_id INTEGER PRIMARY KEY,
@@ -13,20 +13,20 @@ fitness_type_cmd = <<-SQLite3
 	)
 SQLite3
 
-# Create Athlete Table
+# initialize Athlete Table
 athlete_cmd = <<-SQLite3
 	CREATE TABLE IF NOT EXISTS athlete (
 		athlete_id INTEGER PRIMARY KEY,
 		first_name VARCHAR (255),
 		last_name VARCHAR (255),
 		age INTEGER,
-		weight INTEGER,
+		body_weight INTEGER,
 		gender VARCHAR (255)
 	)
 SQLite3
 
 
-# Create Workout_machine Table
+# initialize Workout_machine Table
 workout_machine_cmd = <<-SQLite3
 	CREATE TABLE IF NOT EXISTS workout_machine (
 		machine_id INTEGER PRIMARY KEY,
@@ -36,14 +36,10 @@ workout_machine_cmd = <<-SQLite3
 	)
 SQLite3
 
-
+#create Fitness Table
 db.execute(fitness_type_cmd)
+#create Workout_machine Table
 db.execute(workout_machine_cmd)
-
-db.execute(athlete_cmd)
-
-
-
 
 # Populate fitness_type with database
 if db.execute("SELECT * FROM fitness_type") == []
@@ -112,9 +108,41 @@ if db.execute("SELECT * FROM workout_machine") == []
 	db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Deltoid Raise', 9);")
 end
 
+#create Workout_machine Table
+db.execute(athlete_cmd)
 
-# get user information (first name, last name age, body weight, gender)
 # Populate Athlete with data
+def create_user(db, first_name, last_name, age, body_weight, gender)
+	db.execute("INSERT INTO athlete (first_name, last_name, age, body_weight, gender) VALUES (?,?,?,?,?)", [first_name, last_name, age, body_weight, gender])
+end
+
+
+def new_user(db)
+	p "What is your first name?"
+	first_name = gets.chomp.to_s
+	p "What is your last name?"
+	last_name = gets.chomp.to_s
+	p "What is your age?"
+	age = gets.chomp.to_i
+	p "What is your weight?"
+	body_weight = gets.chomp.to_i
+	p "What is your gender?"
+	gender = gets.chomp.to_s
+	create_user(db, first_name, last_name, age, body_weight, gender)
+end	
+
+new_user(db)
+
+
+
+
+
+
+
+
+
+
+
 # Create Workout_log Table
 # Create PR Table
 # start workout button ->
@@ -184,3 +212,5 @@ end
 # #db.execute(workout_log_cmd)
 
 # view Table
+
+
