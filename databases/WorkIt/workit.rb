@@ -69,7 +69,6 @@ sessions_log_cmd = <<-SQLite3
 	)
 SQLite3
 
-
 #create Fitness Table
 db.execute(fitness_type_cmd)
 #create Workout_machine Table
@@ -82,7 +81,7 @@ db.execute(sessions_log_cmd)
 
 def current_time
 	d = DateTime.now
-	date = d.strftime("%m/%d/%y")   #=> "Printed on 11/19/2007"
+	date = d.strftime("%m/%d/%y") 
 	time = d.strftime("%I:%M")  
 
 
@@ -107,7 +106,6 @@ def set_up_gym(db)
 		db.execute("INSERT INTO fitness_type(catagory) VALUES ('Lats');")
 		db.execute("INSERT INTO fitness_type(catagory) VALUES ('Shoulders');")
 	end
-
 
 	# Populate workout_machine with data
 	if db.execute("SELECT * FROM workout_machine") == []
@@ -164,16 +162,10 @@ def set_up_gym(db)
 	end
 end
 
-
 # Populate Athlete with data
 def create_user(db, first_name, last_name, age, body_weight, gender)
 	db.execute("INSERT INTO athlete (first_name, last_name, age, body_weight, gender, gym_trips) VALUES (?,?,?,?,?,?)", [first_name, last_name, age, body_weight, gender, 0 ])
 end
-
-
-
-
-
 
 def workout(db, athlete_id, session_id)
 	p "we are working out now!!!"
@@ -199,14 +191,13 @@ def workout(db, athlete_id, session_id)
 		answer = gets.chomp
 	end
 	p "Thank you for working out..... Have a nice day!!"
-	p gym_visits = db.execute("select * from athlete where athlete_id='#{athlete_id}';")[0][0][5] + 1
-	session_id = session_id + 1
-	p athlete_id
-	p session_id
-	p db.execute("UPDATE athlete SET gym_trips=#{session_id} where athlete_id=#{athlete_id};")
-	p db.execute("SELECT * from athlete;")
+	gym_visits = db.execute("select * from athlete where athlete_id='#{athlete_id}';")[0][6]
+	gym_visit = gym_visits + 1
+	db.execute("UPDATE athlete SET gym_trips=#{gym_visit} where athlete_id=#{athlete_id};")
+	
+	p "Your workout consisted of: (machine id, sessions sets, sessions reps, sessions weight)"
+	p db.execute("select sessions.machine, sessions.sets, sessions.reps, sessions.weight from sessions where athletes=#{athlete_id} AND session=#{session_id};")
 end
-
 
 #new user information
 def new_user(db)
@@ -230,7 +221,7 @@ def new_user(db)
 		p "Enjoy your workout #{first_name}!"
 
 		p db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';") 
-		workout(db, db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';")[0][0], db.execute("select * from athlete where gym_trips=0;")[0][0][5] + 1)
+		workout(db, db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';")[0][0], db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';")[0][6])
 	else
 		p "Bye #{first_name}. Have a good day!"
 	end	
@@ -261,7 +252,7 @@ def sign_in(db, first_name, last_name)
 	else
 		p "Pulling up your record now..."
 		p db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';")
-		workout(db, db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';")[0][0], db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';")[0][0][5])
+		workout(db, db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';")[0][0], db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';")[0][6])
 	end 
 end
 
@@ -311,8 +302,6 @@ def welcome(db)
 
 	
 end
-
-
 
 # GYM PERSONA driver code
 set_up_gym(db)
