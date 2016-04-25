@@ -63,6 +63,9 @@ sessions_log_cmd = <<-SQLite3
 		sets INTEGER,
 		reps INTEGER,
 		weight INTEGER,
+		time INTEGER,
+		distance INTEGER,
+		flight INTEGER,
 		FOREIGN KEY (session) REFERENCES workout_log(session_id)
 		FOREIGN KEY (athletes) REFERENCES athlete(athlete_id)
 		FOREIGN KEY (machine) REFERENCES workout_machine(machine_id)
@@ -114,8 +117,9 @@ def set_up_gym(db)
 		db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Treadmill', 1);")
 		db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Adaptive Motion Trainer', 1);")
 		db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Bike', 1);")
-		db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Stair Master', 1);")
 		db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Row Machine', 1);")
+		db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Stair Master', 1);")
+		
 		
 		#back
 		db.execute("INSERT INTO workout_machine(name, focus_id) VALUES ('Deltoid Fly', 2);")
@@ -169,9 +173,8 @@ end
 
 def workout(db, athlete_id, session_id)
 	p "we are working out now!!!"
-	p time_now = current_time()
-	p athlete_id
-	p session_id
+	time_now = current_time()
+	
 	db.execute("INSERT INTO workout_log(athlete_id, session_id, date) VALUES (?,?,?)", [athlete_id, session_id, time_now])
 
 	p "What machine (number) do you want to use? If you want to stop your workout say 'stop workout'"
@@ -179,24 +182,48 @@ def workout(db, athlete_id, session_id)
 	answer = gets.chomp
 	machine = answer
 	until answer == 'stop workout'
-		p "What set are you on?"
-		set = gets.chomp
-		p "How many reps did you do?" 
-		reps = gets.chomp
-		p "How much weight did you lift"
-		weight = gets.chomp
-		db.execute("INSERT INTO sessions(session, athletes, machine, sets, reps, weight) VALUES (?,?,?,?,?,?)", [session_id, athlete_id, machine, set,reps, weight])
-		p "What machine (number) do you want to use next? If you want to stop your workout say 'stop workout'"
-		p db.execute("select workout_machine.machine_id, workout_machine.name from workout_machine;")
-		answer = gets.chomp
+		if answer.to_i < 6
+			p "How long did you go?"
+			time = gets.chomp
+			p "How far did you go?"
+			distance = gets.chomp
+			db.execute("INSERT INTO sessions(session, athletes, time, distance) VALUES (?,?,?,?)", [session_id, athlete_id,time,distance])
+			p "What machine (number) do you want to use next? If you want to stop your workout say 'stop workout'"
+			p db.execute("select workout_machine.machine_id, workout_machine.name from workout_machine;")
+			answer = gets.chomp
+		elsif answer.to_i == 6
+			p "How long did you go?"
+			time = gets.chomp
+			p "How far did you go?"
+			distance = gets.chomp
+			p "How many flights did you go?"
+
+			flights = gets.chomp
+			db.execute("INSERT INTO sessions(session, athletes, time, distance, flight) VALUES (?,?,?,?,?)", [session_id, athlete_id,time,distance, flights])
+			p "What machine (number) do you want to use next? If you want to stop your workout say 'stop workout'"
+			p db.execute("select workout_machine.machine_id, workout_machine.name from workout_machine;")
+			answer = gets.chomp
+		else
+
+			p "What set are you on?"
+			set = gets.chomp
+			p "How many reps did you do?" 
+			reps = gets.chomp
+			p "How much weight did you lift"
+			weight = gets.chomp
+			db.execute("INSERT INTO sessions(session, athletes, machine, sets, reps, weight) VALUES (?,?,?,?,?,?)", [session_id, athlete_id, machine, set,reps, weight])
+			p "What machine (number) do you want to use next? If you want to stop your workout say 'stop workout'"
+			p db.execute("select workout_machine.machine_id, workout_machine.name from workout_machine;")
+			answer = gets.chomp
+		end
+
+			
+
 	end
 	p "Thank you for working out..... Have a nice day!!"
 	gym_visits = db.execute("select * from athlete where athlete_id='#{athlete_id}';")[0][6]
 	gym_visit = gym_visits + 1
 	db.execute("UPDATE athlete SET gym_trips=#{gym_visit} where athlete_id=#{athlete_id};")
-	
-	p "Your workout consisted of: (machine id, sessions sets, sessions reps, sessions weight)"
-	p db.execute("select sessions.machine, sessions.sets, sessions.reps, sessions.weight from sessions where athletes=#{athlete_id} AND session=#{session_id};")
 end
 
 #new user information
