@@ -217,8 +217,6 @@ def workout(db, athlete_id, session_id)
 			answer = gets.chomp
 		end
 
-			
-
 	end
 	p "Thank you for working out..... Have a nice day!!"
 	gym_visits = db.execute("select * from athlete where athlete_id='#{athlete_id}';")[0][6]
@@ -326,8 +324,6 @@ def welcome(db)
 			end
 		end
 	end	
-
-	
 end
 
 # GYM PERSONA driver code
