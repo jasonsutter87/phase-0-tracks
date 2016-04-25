@@ -3,8 +3,6 @@ require 'SQLite3'
 require 'time'
 
 
-
-
 # Create SQLite3 database
 db = SQLite3::Database.new("workit.db")
 
@@ -240,7 +238,7 @@ def new_user(db)
 	p "Awsome! Great to have you #{first_name}. I hope you like Jason's Fitness"
 	p "Do you want to work out today? ( yes / no )"
 	answer = gets.chomp
-	if answer == "yes"
+	if answer == "yes" || answer == "y"
 		p "Awesome! Quick tour at Jason's Jason's Fitness"
 		p "We have an assortment of machines.You can find a list right here: Cardio, Back, Chest, Bicep, Tricep, Legs, Abs"
 		p "Enjoy your workout #{first_name}!"
@@ -261,7 +259,7 @@ def sign_in(db, first_name, last_name)
 	if db.execute("SELECT * FROM athlete WHERE first_name='#{first_name}' AND last_name='#{last_name}';") == []
 		p "Sorry #{first_name}, You have not signed up yet. Would you like to sign up? ( yes / no)"
 		answer = gets.chomp.downcase.to_s
-		if answer == "yes"
+		if answer == "yes" || answer == "y"
 			p "Setting up new Athlete"
 			new_user(db)
 		else
@@ -287,14 +285,14 @@ def welcome(db)
 	if db.execute("SELECT * FROM athlete") == []
 		p "Would you like to sign up a new user? ( yes / no)" 
 		answer = gets.chomp.downcase.to_s
-		if answer == "yes"
+		if answer == "yes" || answer == "y"
 			p "Setting up new Athlete"
 			new_user(db)
 		else
 			p "Sorry you didnt write 'yes'.."
 			p "Would you like to try again? ( yes / no )"
 			answer = gets.chomp.downcase.to_s
-			if answer == "yes"
+			if answer == "yes" || answer == "y"
 				welcome(db)
 			else
 				p "Have a good day!"
@@ -317,7 +315,7 @@ def welcome(db)
 			p "Sorry you didnt write 'new user' or 'sign in'.."
 			p "Would you like to try again? ( yes / no )"
 			answer = gets.chomp.downcase.to_s
-			if answer == "yes"
+			if answer == "yes" || answer == "y"
 				welcome(db)
 			else
 				p "Have a good day!"
