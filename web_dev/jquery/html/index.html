@@ -1,0 +1,43 @@
+<! DOCTYPE html>
+<html lang="en-us">
+  <head>
+  	<meta charset="utf-8">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <title>jasons jquery test</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/styles.css">
+    <script> 
+		$(document).ready(function(){
+		    $("#question").click(function(){
+		        $("#answer").slideToggle("slow");
+		    });
+		});
+
+		$(document).ready(function(){
+		    $("#question2").click(function(){
+		        $("#answer2").slideToggle("slow");
+		    });
+		});
+</script>
+  </head>
+<body>
+
+<ul>
+  <li><a class="active" href="#">Home</a></li>
+  <li><a href="#">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+
+<div style="margin-left:25%;padding:1px 16px;height:1000px;">
+ 
+  <h2>Jasons math site!</h2>
+  <h3 >What is 7 + 10?</h3><button id="question">Click me to toggle the answer!!!</button>
+  <p id="answer">17</p>
+ 
+
+ <h3 >What is 3 + 10?</h3><button id="question2">Click me to toggle the answer!!!</button>
+  <p id="answer2">13</p>
+</div>
+
+</body>
+</html>
