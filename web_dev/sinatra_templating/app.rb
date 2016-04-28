@@ -10,6 +10,7 @@ db.results_as_hash = true
 # show students on the home page
 get '/' do
   @students = db.execute("SELECT * FROM students")
+  @students_music = db.execute("SELECT * FROM students_music")
   erb :home
 end
 
@@ -24,4 +25,18 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/update' do
+  erb :update_students
+end
+
 # add static resources
+post '/music' do
+  db.execute("INSERT INTO students_music (name, fav_band) VALUES (?,?)", [params['name'], params['fav_band']])
+  redirect '/'
+end
+
+
+
+
+
+
